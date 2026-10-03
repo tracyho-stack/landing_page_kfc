@@ -1,0 +1,12 @@
+id,name,category,description,price,original_price,image,featured
+P001,Gà Rán Truyền Thống,Fried Chicken,Gà rán công thức truyền thống với lớp da giòn rụm và thịt mềm mọng nước đặc trưng KFC,40000,,assets/images/ga_ran_truyen_thong.jpg,true
+P002,Gà Rán Cay (Best Seller),Fried Chicken,Miếng gà vàng ươm giòn tan tẩm ướp sốt ớt cay nồng bùng nổ vị giác,45000,,assets/images/ga_ran_cay.jpg,true
+P003,Khoai Tây Chiên,Sides,Khoai tây chiên vàng giòn rụm bên ngoài và thơm bùi nóng hổi bên trong,20000,,assets/images/khoai_tay_chien.jpg,false
+P004,Hamburger Gà,Burger,Burger kẹp thịt gà rán giòn rụm xà lách tươi và sốt mayonnaise béo ngậy,50000,,assets/images/burger_ga.jpg,true
+P005,Hamburger Bò,Burger,Burger bò nướng đậm vị phô mai béo ngậy cùng rau xà lách tươi ngon hảo hạng,50000,,assets/images/burger_bo.jpg,false
+P006,Hamburger Tôm,Burger,Burger nhân chả tôm tươi ngọt chiên xù giòn tan cùng sốt tartar độc quyền,50000,,assets/images/burger_tom.jpg,false
+P007,Pepsi (Ly),Drinks,Nước ngọt có gas Pepsi tươi mát lạnh xua tan cơn khát,10000,,assets/images/pepsi.jpg,false
+P008,Coca Cola (Ly),Drinks,Nước giải khát Coca Cola mát lạnh sảng khoái từng ngụm,10000,,assets/images/pepsi.jpg,false
+P009,7Up (Ly),Drinks,Nước ngọt 7Up vị chanh tươi mát sảng khoái bừng tỉnh,10000,,assets/images/7up.jpg,false
+P010,Combo Xô Gà Gia Đình,Combo,"6 miếng gà rán giòn, 1 khoai tây chiên lớn, 2 ly Pepsi mát lạnh",219000,249000,assets/images/xo_ga.jpg,true
+P011,Combo Burger Siêu Tiết Kiệm,Combo,"1 Hamburger gà giòn, 1 phần khoai tây chiên vừa, 1 ly nước ngọt tự chọn",75000,80000,assets/images/combo_burger.jpg,true

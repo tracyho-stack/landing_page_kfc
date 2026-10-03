@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Chi tiết món ngon KFC - Vị ngon trên từng ngón tay." />
+  <title>Chi Tiết Món Ăn | KFC Việt Nam</title>
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/images/kfc-logo.png" />
+</head>
+<body>
+
+  <!-- ==========================================================================
+       Header / Navigation
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html#hero" class="brand-logo" aria-label="KFC Trang chủ">
+        <img src="assets/images/kfc-logo.png" alt="KFC Logo" onerror="this.src='images/KFC_logo-image.png'" />
+        <span class="brand-name">KFC</span>
+      </a>
+
+      <!-- Menu Điều Hướng -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html#hero" class="nav-link">Trang Chủ</a></li>
+          <li><a href="index.html#menu" class="nav-link active">Thực Đơn</a></li>
+          <li><a href="index.html#promotions" class="nav-link">Khuyến Mãi</a></li>
+          <li><a href="index.html#about" class="nav-link">Về KFC</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions (Cart) -->
+      <div class="nav-actions">
+        <button class="cart-toggle-btn" id="cart-toggle-btn" aria-label="Xem giỏ hàng">
+          <span class="cart-icon">🛒</span>
+          <span>Giỏ hàng</span>
+          <span class="cart-badge" id="cart-badge-count" style="display: none;">0</span>
+        </button>
+
+        <a href="index.html#menu" class="btn btn-primary btn-sm" aria-label="Xem thực đơn">
+          Xem Thực Đơn
+        </a>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Mở menu điều hướng" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       Breadcrumbs Navigation
+       ========================================================================== -->
+  <nav class="breadcrumbs-bar" aria-label="Thanh điều hướng phân cấp">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li><a href="index.html">Trang chủ</a></li>
+        <li class="breadcrumb-separator">/</li>
+        <li><a href="index.html#menu">Thực đơn</a></li>
+        <li class="breadcrumb-separator">/</li>
+        <li id="breadcrumb-category">Danh mục</li>
+        <li class="breadcrumb-separator">/</li>
+        <li class="breadcrumb-current" id="breadcrumb-product">Tên món ăn</li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ==========================================================================
+         Product Detail Section
+         ========================================================================== -->
+    <section class="product-detail-section">
+      <div class="container">
+        <!-- Main Product Detail View -->
+        <div class="product-detail-grid" id="product-detail-container">
+          <!-- Left Column: Product Image -->
+          <div class="detail-media-box">
+            <img id="detail-product-img" src="assets/images/ga_ran_truyen_thong.jpg" alt="Hình món ăn" class="detail-main-img" onerror="this.src='assets/images/ga_ran_cay.jpg'" />
+            <div class="detail-badge-box">
+              <span class="detail-badge detail-badge-category" id="detail-category-badge">Danh mục</span>
+              <span class="detail-badge detail-badge-best-seller" id="detail-promo-badge" style="display: none;">🔥 Bán Chạy Nhất</span>
+            </div>
+          </div>
+
+          <!-- Right Column: Product Information & Add to Cart -->
+          <div class="detail-info-box">
+            <h1 class="detail-title" id="detail-product-name">Tên Món Ăn</h1>
+
+            <div class="detail-price-row">
+              <span class="detail-current-price" id="detail-product-price">0 ₫</span>
+              <span class="detail-original-price" id="detail-product-original-price" style="display: none;">0 ₫</span>
+            </div>
+
+            <div class="detail-desc-box">
+              <h3 class="detail-desc-title">Mô tả món ăn</h3>
+              <p class="detail-desc-text" id="detail-product-desc">Đang tải thông tin chi tiết món ăn...</p>
+            </div>
+
+            <!-- Order Controls -->
+            <div class="detail-controls-box">
+              <div class="detail-qty-wrapper">
+                <span style="font-weight: 700; font-size: 1.05rem;">Chọn số lượng:</span>
+                <div class="qty-control">
+                  <button class="qty-btn" id="detail-qty-decrease" aria-label="Giảm số lượng">-</button>
+                  <span class="qty-value" id="detail-qty-value">1</span>
+                  <button class="qty-btn" id="detail-qty-increase" aria-label="Tăng số lượng">+</button>
+                </div>
+              </div>
+
+              <div class="detail-actions-row">
+                <button class="btn btn-secondary" id="detail-add-to-cart-btn">
+                  🛒 Thêm vào giỏ
+                </button>
+                <button class="btn btn-primary" id="detail-buy-now-btn">
+                  ⚡ Mua ngay
+                </button>
+              </div>
+            </div>
+
+            <!-- Trust Indicators -->
+            <ul class="detail-trust-list">
+              <li class="detail-trust-item">
+                <span class="detail-trust-icon">🍗</span>
+                <span>100% Gà tươi sạch mỗi ngày</span>
+              </li>
+              <li class="detail-trust-item">
+                <span class="detail-trust-icon">🔥</span>
+                <span>Chế biến nóng giòn tại bếp</span>
+              </li>
+              <li class="detail-trust-item">
+                <span class="detail-trust-icon">🚀</span>
+                <span>Giao nhanh nóng hổi</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Product Not Found View (Fallback) -->
+        <div class="not-found-container" id="product-not-found" style="display: none;">
+          <div class="not-found-icon">🔍</div>
+          <h2>Không tìm thấy món ăn này!</h2>
+          <p style="color: var(--gray-text); margin: 12px 0 24px;">Món ăn bạn tìm kiếm có thể đã thay đổi hoặc không tồn tại trong thực đơn hiện tại.</p>
+          <a href="index.html#menu" class="btn btn-primary">Quay lại Thực Đơn</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Related Products Section
+         ========================================================================== -->
+    <section class="related-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Gợi Ý Hấp Dẫn</span>
+          <h2 class="section-title">Món Ngon Dành Cho Bạn</h2>
+          <p class="section-desc">Khám phá thêm các món ăn kèm và combo tuyệt hảo để trọn vẹn bữa tiệc gà rán.</p>
+        </div>
+
+        <div class="products-grid" id="related-products-grid">
+          <!-- Dynamically populated via JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       Module 1: Shopping Cart Drawer
+       ========================================================================== -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="cart-drawer" id="cart-drawer">
+      <!-- Cart Header -->
+      <div class="cart-header">
+        <div class="cart-title-box">
+          <span class="cart-icon">🛒</span>
+          <h3 class="cart-header-title">Giỏ hàng của bạn</h3>
+        </div>
+        <button class="cart-close-btn" id="cart-close-btn" aria-label="Đóng giỏ hàng">&times;</button>
+      </div>
+
+      <!-- Cart Body -->
+      <div class="cart-body">
+        <!-- Empty Cart View -->
+        <div class="cart-empty-view" id="cart-empty-view">
+          <span class="cart-empty-icon">🍗</span>
+          <h4 class="cart-empty-title">Giỏ hàng đang trống</h4>
+          <p class="cart-empty-desc">Chưa có món ngon nào trong giỏ. Hãy chọn ngay món bạn yêu thích nhé!</p>
+          <a href="index.html#menu" class="btn btn-primary btn-sm" id="cart-explore-menu-btn">
+            Khám phá thực đơn
+          </a>
+        </div>
+
+        <!-- Cart Items Container -->
+        <div class="cart-items-list" id="cart-items-list">
+          <!-- Dynamic Cart Items -->
+        </div>
+      </div>
+
+      <!-- Cart Footer -->
+      <div class="cart-footer" id="cart-footer" style="display: none;">
+        <div class="cart-summary-row">
+          <span>Tạm tính</span>
+          <span id="cart-subtotal-price">0 ₫</span>
+        </div>
+        <div class="cart-total-row">
+          <span>Tổng thanh toán</span>
+          <span class="cart-total-value" id="cart-total-price">0 ₫</span>
+        </div>
+
+        <div class="cart-actions">
+          <button class="btn btn-primary btn-block" id="cart-checkout-btn">
+            Tiến hành Đặt hàng
+          </button>
+          <button class="btn btn-outline-danger btn-block btn-sm" id="clear-cart-btn">
+            Xoá toàn bộ giỏ hàng
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Module Thanh Toán: Checkout Modal (MoMo QR & Thẻ ATM)
+       ========================================================================== -->
+  <div class="modal-overlay" id="checkout-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-container checkout-modal-container">
+      <div class="checkout-modal-header">
+        <div class="checkout-modal-header-info">
+          <span class="checkout-badge-pill">🍗 KFC Fast Delivery</span>
+          <h2 class="checkout-modal-title">Thanh Toán Đơn Hàng</h2>
+          <p class="checkout-modal-subtitle">Giao hàng nóng giòn tận nơi trong 30 phút</p>
+        </div>
+        <button class="modal-close-btn" id="checkout-close-btn" aria-label="Đóng">&times;</button>
+      </div>
+      
+      <div class="checkout-modal-body">
+        <form id="checkout-form">
+          <div class="checkout-grid">
+            <!-- Cột Trái: Thông tin giao hàng & Phương thức thanh toán -->
+            <div class="checkout-left-col">
+              <div class="checkout-card-panel" style="margin-bottom: 20px;">
+                <h3 class="checkout-section-title">
+                  <span><span class="step-number">1</span> Thông Tin Giao Hàng</span>
+                  <span style="font-size: 0.75rem; color: var(--primary-red); font-weight: 700;">* Bắt buộc</span>
+                </h3>
+                
+                <div class="form-group">
+                  <label class="form-label" for="customer-name">Họ và tên người nhận *</label>
+                  <input type="text" id="customer-name" class="form-input" placeholder="Ví dụ: Nguyễn Văn A" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="customer-phone">Số điện thoại *</label>
+                  <input type="tel" id="customer-phone" class="form-input" placeholder="Ví dụ: 0909 123 456" pattern="[0-9]{10,11}" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="customer-address">Địa chỉ giao hàng chi tiết *</label>
+                  <input type="text" id="customer-address" class="form-input" placeholder="Số nhà, tên đường, phường/xã, quận/huyện" required />
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label class="form-label" for="customer-note">Ghi chú cho tài xế</label>
+                  <textarea id="customer-note" class="form-textarea" rows="2" placeholder="Ví dụ: Cho thêm tương ớt/tương cà, gọi trước khi đến..."></textarea>
+                </div>
+              </div>
+
+              <div class="checkout-card-panel">
+                <h3 class="checkout-section-title">
+                  <span><span class="step-number">2</span> Phương Thức Thanh Toán</span>
+                </h3>
+                
+                <div class="payment-methods-grid">
+                  <!-- MoMo QR -->
+                  <label class="payment-method-card">
+                    <input type="radio" name="payment_method" value="momo" checked />
+                    <div class="method-icon-box" style="background: #FFF0F6; color: #A50064;">🟣</div>
+                    <div class="method-info">
+                      <div class="method-header-row">
+                        <span class="method-title">Ví MoMo (Mã QR)</span>
+                        <span class="method-tag-badge">Khuyên dùng</span>
+                      </div>
+                      <span class="method-sub">Mở app MoMo quét mã thanh toán tức thì</span>
+                    </div>
+                  </label>
+
+                  <!-- ATM -->
+                  <label class="payment-method-card">
+                    <input type="radio" name="payment_method" value="atm" />
+                    <div class="method-icon-box" style="background: #F0F7FF; color: #0066B3;">🏦</div>
+                    <div class="method-info">
+                      <div class="method-header-row">
+                        <span class="method-title">Thẻ ATM / VietQR</span>
+                        <span class="method-tag-badge">Napas 24/7</span>
+                      </div>
+                      <span class="method-sub">Thẻ nội địa các ngân hàng Việt Nam</span>
+                    </div>
+                  </label>
+
+                  <!-- COD -->
+                  <label class="payment-method-card">
+                    <input type="radio" name="payment_method" value="cod" />
+                    <div class="method-icon-box" style="background: #F4FBF7; color: #2ECC71;">💵</div>
+                    <div class="method-info">
+                      <div class="method-header-row">
+                        <span class="method-title">Tiền mặt khi nhận (COD)</span>
+                        <span class="method-tag-badge">Tiện lợi</span>
+                      </div>
+                      <span class="method-sub">Thanh toán trực tiếp cho nhân viên giao hàng</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cột Phải: Tóm tắt đơn hàng & Khung Thanh Toán Tương Tác -->
+            <div class="checkout-right-col">
+              <div class="checkout-summary-box">
+                <h3 class="checkout-section-title" style="margin-bottom: 12px;">
+                  <span>🍗 Chi Tiết Đơn Hàng</span>
+                </h3>
+                
+                <div class="checkout-items-list" id="checkout-items-list">
+                  <!-- Render từ checkout.js -->
+                </div>
+
+                <div class="cart-summary-row">
+                  <span>Tạm tính</span>
+                  <span id="checkout-subtotal" style="font-weight: 700; color: var(--dark);">0 ₫</span>
+                </div>
+                <div class="cart-summary-row">
+                  <span>Phí giao hàng</span>
+                  <span style="color: #2ECC71; font-weight: 800;">Miễn phí</span>
+                </div>
+                <div class="cart-total-row" style="margin-top: 8px; padding-top: 8px;">
+                  <span>Tổng thanh toán</span>
+                  <span class="cart-total-value" id="checkout-total">0 ₫</span>
+                </div>
+              </div>
+
+              <!-- Khung Thanh Toán MoMo -->
+              <div class="momo-box" id="momo-payment-box">
+                <div class="momo-header">
+                  <span>🟣 Quét Mã QR Qua Ví MoMo</span>
+                </div>
+                <span class="momo-timer-badge">⏱ Mã hết hạn sau: <span id="momo-countdown">05:00</span></span>
+                <div class="momo-qr-wrapper">
+                  <img id="momo-qr-img" src="" alt="Mã QR MoMo" class="momo-qr-img" />
+                </div>
+                <p class="momo-instruction">Mở ứng dụng MoMo trên điện thoại để quét mã</p>
+                <div class="momo-details">
+                  <span>Số tiền: <strong id="momo-amount" style="color: #A50064;">0 ₫</strong></span>
+                  <span>Mã đơn: <strong id="momo-order-id">KFC-000000</strong></span>
+                </div>
+              </div>
+
+              <!-- Khung Thanh Toán Thẻ ATM -->
+              <div class="atm-box" id="atm-payment-box" style="display: none;">
+                <div class="atm-header">🏦 Nhập Thông Tin Thẻ ATM Nội Địa</div>
+                <div class="form-group">
+                  <label class="form-label">Chọn ngân hàng phát hành thẻ</label>
+                  <select id="atm-bank-select" class="form-select">
+                    <option value="VCB">Vietcombank - Ngân hàng Ngoại Thương</option>
+                    <option value="TCB">Techcombank - Ngân hàng Kỹ Thương</option>
+                    <option value="MB">MB Bank - Ngân hàng Quân Đội</option>
+                    <option value="BIDV">BIDV - Đầu Tư & Phát Triển</option>
+                    <option value="ACB">ACB - Ngân hàng Á Châu</option>
+                    <option value="CTG">VietinBank - Ngân hàng Công Thương</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Số thẻ ATM (In trên mặt trước thẻ)</label>
+                  <input type="text" id="atm-card-number" class="form-input" placeholder="9704 xxxx xxxx xxxx" maxlength="23" />
+                </div>
+                <div class="atm-row">
+                  <div class="form-group">
+                    <label class="form-label">Tên chủ thẻ (Không dấu)</label>
+                    <input type="text" id="atm-card-holder" class="form-input" placeholder="NGUYEN VAN A" style="text-transform: uppercase;" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Ngày phát hành</label>
+                    <input type="text" id="atm-card-expiry" class="form-input" placeholder="MM/YY" maxlength="5" />
+                  </div>
+                </div>
+                <div class="atm-security-badge">
+                  🔒 Giao dịch bảo mật 256-bit SSL qua cổng Napas
+                </div>
+              </div>
+
+              <!-- Khung Tiền Mặt -->
+              <div id="cod-payment-box" style="display: none; padding: 16px; background: #FFFDF9; border-radius: 12px; margin-top: 16px; font-size: 0.875rem; color: #475569; border: 1.5px dashed #E2E8F0; line-height: 1.5;">
+                🚚 <strong>Giao hàng thu tiền (COD):</strong> Vui lòng chuẩn bị sẵn số tiền thanh toán khi nhân viên KFC giao hàng đến tận cửa.
+              </div>
+
+              <button type="submit" class="checkout-submit-btn" id="submit-payment-btn">
+                🔒 Đặt Hàng & Thanh Toán
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Hoá Đơn Đặt Hàng Thành Công (Receipt Modal)
+       ========================================================================== -->
+  <div class="modal-overlay" id="receipt-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-container receipt-modal-container">
+      <button class="modal-close-btn" id="receipt-close-btn" aria-label="Đóng">&times;</button>
+      
+      <div class="receipt-success-icon">✓</div>
+      <h2 class="receipt-title">ĐẶT HÀNG THÀNH CÔNG!</h2>
+      <p style="color: var(--gray-text); font-size: 0.95rem;">Cảm ơn bạn đã lựa chọn KFC! Đơn hàng của bạn đang được bếp trưởng chuẩn bị nóng sốt.</p>
+
+      <div class="receipt-card">
+        <div class="receipt-row">
+          <strong>Mã đơn hàng:</strong>
+          <span id="receipt-order-id" style="color: var(--primary-red); font-weight: 800;">#KFC-000000</span>
+        </div>
+        <div class="receipt-row">
+          <span>Thời gian đặt:</span>
+          <span id="receipt-date">--:-- --/--/----</span>
+        </div>
+        <div class="receipt-row">
+          <span>Người nhận:</span>
+          <span id="receipt-customer-name">--</span>
+        </div>
+        <div class="receipt-row">
+          <span>Số điện thoại:</span>
+          <span id="receipt-customer-phone">--</span>
+        </div>
+        <div class="receipt-row">
+          <span>Địa chỉ:</span>
+          <span id="receipt-customer-address">--</span>
+        </div>
+        <div class="receipt-row">
+          <span>Hình thức thanh toán:</span>
+          <span id="receipt-payment-method" style="font-weight: 700;">--</span>
+        </div>
+
+        <div style="margin: 12px 0 6px; font-weight: 800; font-size: 0.9rem;">Danh sách món ăn:</div>
+        <div id="receipt-items-list"></div>
+
+        <div class="receipt-row receipt-total-row">
+          <span>Tổng thanh toán:</span>
+          <span id="receipt-total">0 ₫</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap;">
+        <button class="btn btn-primary" id="continue-shopping-btn" style="flex: 1; min-width: 160px;">
+          🍗 Tiếp Tục Mua Sắm
+        </button>
+        <button class="btn" id="export-db-btn" style="background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); color: #FFF; border: none; border-radius: 12px; font-weight: 800; padding: 14px 18px; font-size: 0.9rem; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25); flex: 1; min-width: 160px;">
+          💾 Tải File SQLite (orders.db)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <aside class="toast-notification" id="toast-notification" role="status" aria-live="polite">
+    <span class="toast-icon">✓</span>
+    <span class="toast-text" id="toast-message">Đã thêm vào giỏ hàng!</span>
+  </aside>
+
+  <!-- ==========================================================================
+       Footer
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo" style="margin-bottom: 12px;">
+            <img src="assets/images/kfc-logo.png" alt="KFC Logo" onerror="this.src='images/KFC_logo-image.png'" />
+            <span class="brand-name">KFC</span>
+          </div>
+          <p>Hương vị gà rán giòn rụm hảo hạng phục vụ hàng triệu thực khách tại Việt Nam và trên toàn thế giới mỗi ngày.</p>
+          <div class="footer-socials">
+            <a href="#facebook" class="social-link" aria-label="Facebook">f</a>
+            <a href="#instagram" class="social-link" aria-label="Instagram">in</a>
+            <a href="#youtube" class="social-link" aria-label="YouTube">yt</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-column-title">Thực Đơn</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#menu">Gà Rán Giòn Cay</a></li>
+            <li><a href="index.html#menu">Burger & Cơm</a></li>
+            <li><a href="index.html#menu">Combo Tiết Kiệm</a></li>
+            <li><a href="index.html#menu">Món Kèm & Thức Uống</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-column-title">Khám Phá</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#promotions">Khuyến mãi mới nhất</a></li>
+            <li><a href="index.html#about">Câu chuyện thương hiệu</a></li>
+            <li><a href="index.html#hero">Hệ thống nhà hàng</a></li>
+            <li><a href="index.html#hero">Tuyển dụng KFC</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-column-title">Liên Hệ</h4>
+          <ul class="footer-links">
+            <li><a href="tel:19006886">Tổng đài đặt hàng: 1900 6886</a></li>
+            <li><a href="mailto:support@kfc.vn">Email: support@kfc.vn</a></li>
+            <li><a href="index.html#hero">Giờ mở cửa: 09:00 - 22:00</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 KFC Corporation. Bản quyền thuộc về KFC Việt Nam.</p>
+        <p>Giao diện thuần HTML5, CSS3 & JavaScript.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
+  <script src="js/database.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/product-detail.js"></script>
+</body>
+</html>
